@@ -4,6 +4,7 @@
 
 >百度图片抓取
 >需要的三方库:requests
+>查看 : [imageSpider.py](./imageSpider.py)
     
 
 
