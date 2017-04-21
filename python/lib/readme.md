@@ -7,4 +7,8 @@
 - 查看 : [imageSpider.py](./imageSpider.py)
     
 
+## 2.sendMail.py
+
+- 发送邮件
+- 查看: [sendMail.py](./sendMail.py)
 
