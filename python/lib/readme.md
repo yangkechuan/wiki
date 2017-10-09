@@ -20,3 +20,9 @@
 - 图片压缩
 - 三方库： `pip install --upgrade tinify`
 - 查看: [tinyPng.py](tinyPng.py)
+
+## 4. RsaUtil.py
+
+- RSA加密解密，加签验签
+- 三方库： `pip install rsa`
+- 查看：[RsaUtil.py](RsaUtil.py)
