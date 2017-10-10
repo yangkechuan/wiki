@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding:utf-8 -*-
 
 import requests
 import re
@@ -19,6 +20,8 @@ header = """
 
 print(header)
 
+count = 0
+
 
 def get_urls(url):
     """url为百度图片下的地址
@@ -34,15 +37,32 @@ def get_urls(url):
     for url in pict_urls:
         download_image(url, str(n)+'.jpg')
         n += 1
-    print("共下载图片" + str(len(pict_urls)) + "张")
+    print("共下载图片" + str(count) + "张")
 
 
 def download_image(url, name):
     try:
-        urllib.request.urlretrieve(url, name)
-        print(" 已下载: " + url)
+        global count
+        print("正在下载：" + url)
+        urllib.request.urlretrieve(url, name, schedule)
+        count += 1
     except:
         pass
+
+
+def schedule(a, b, c):
+    """
+    :param a: 已经下载的数据块
+    :param b: 数据块的大小
+    :param c: 远程文件的大小
+    :return: null
+    """
+    per = 100.0 * a * b / c
+    if per > 100:
+        per = 100
+    per = round(per, 2)
+    print('当前下载进度：' + str(per))
+
 
 if __name__ == '__main__':
     print('请输入网址:')
