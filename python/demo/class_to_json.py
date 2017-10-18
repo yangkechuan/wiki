@@ -38,7 +38,7 @@ class User:
 user = User('user', 10)
 dict_user = user.__dict__
 json_user = json.dumps(dict_user, indent=4)
-print(json_user)
+# print(json_user)
 
 
 """
@@ -46,11 +46,13 @@ print(json_user)
 json如果有多层结构
 例如外层的address也是一个json，则新建一个Address类
 同时Address中的phone是一个json数组，则新建一个Phone类
+
+**Address和Phone可以是外部类，也可以是内部类**
 """
 
 
 class Customer:
-    def __init__(self, name, grade, age, home, office, num):
+    def __init__(self, name, grade, age, home=None, office=None, num=None):
         """
         转换后的格式：
         {
@@ -77,20 +79,34 @@ class Customer:
         self.name = name
         self.grade = grade
         self.age = age
-        self.address = Address(home, office, num)
+        self.address = self.Address(home, office, num)
+
+    def __str__(self):
+        return 'customer name:{name}, grade:{grade}, age:{age}, home:{home}, office:{office}, num:{num} '.\
+            format(name=self.name, grade=self.grade, age=self.age, home=self.address.home, office=self.address.office
+                   , num=self.address.phone[0].num)
+    __repr__ = __str__
+
+    class Address:
+        def __init__(self, home, office, num):
+            self.home = home
+            self.office = office
+            self.phone = [self.Phone(num)]
+
+        def __str__(self):
+            return 'address home:{home}, office:{office}, num:{num}'.format(home=self.home, office=self.office
+                                                                            , num=self.phone[0].num)
+        __repr__ = __str__
+
+        class Phone:
+            def __init__(self, num):
+                self.num = num
+
+            def __str__(self):
+                return 'phone num:{num}'.format(num=self.num)
+            __repr__ = __str__
 
 
-class Address:
-    def __init__(self, home, office, num):
-        self.home = home
-        self.office = office
-        self.phone = [Phone(num)]
-
-
-class Phone:
-    def __init__(self, num):
-        self.num = num
-
-customer = Customer('john', 'A', 15, '111', 'aaa', '1234567')
+customer = Customer('john', 'A', 15, 'home', 'office', 1234567)
 json_str = json.dumps(customer, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 print(json_str)
