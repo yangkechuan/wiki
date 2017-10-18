@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
+from gevent import monkey
 import requests
+import time
 import re
+import gevent
+monkey.patch_all()
 
 author = "夜微凉"
 
@@ -31,19 +35,15 @@ def get_urls(url):
     headers = {'User-agent': 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0'}
     text = requests.get(url, headers=headers).text
     pic_url = re.compile(r'\"objURL\":\"(http.*?jpg)\"')
-    pict_urls = pic_url.findall(text)
-    n = 0
-    for url in pict_urls:
-        download_image(url, str(n)+'.jpg')
-        n += 1
-    print("共下载图片" + str(count) + "张")
+    pic_urls = pic_url.findall(text)
+    return pic_urls
 
 
 def download_image(url, name):
     try:
         global count
-        print("正在下载：" + url)
         response = requests.get(url=url, stream=True)
+        print("正在下载：" + url)
         content_size = response.headers['content-length']
         print('文件大小：' + str(round(int(content_size) / 1024, 2)) + 'kb')
         with open(name, 'wb') as f:
@@ -54,10 +54,24 @@ def download_image(url, name):
         pass
 
 
+def event():
+    jobs = []
+    for index, url in enumerate(pict_urls):
+        jobs.append(gevent.spawn(download_image, url=url, name=str(index)+'.jpg'))
+    gevent.joinall(jobs)
+    print("共下载图片" + str(count) + "张")
+
+
 if __name__ == '__main__':
     print('请输入网址:')
     urls = input()
-    get_urls(urls)
+    start_time = time.time()
+    pict_urls = get_urls(urls)
+    event()
+    end_time = time.time()
+    run_time = int(end_time - start_time)
+    print('运行耗时：' + str(run_time) + 's')
+
 
 end = """
 --------------------------------------
