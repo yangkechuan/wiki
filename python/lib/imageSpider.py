@@ -3,7 +3,6 @@
 
 import requests
 import re
-import urllib
 
 author = "夜微凉"
 
@@ -44,24 +43,15 @@ def download_image(url, name):
     try:
         global count
         print("正在下载：" + url)
-        urllib.request.urlretrieve(url, name, schedule)
+        response = requests.get(url=url, stream=True)
+        content_size = response.headers['content-length']
+        print('文件大小：' + str(round(int(content_size) / 1024, 2)) + 'kb')
+        with open(name, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=128):
+                f.write(chunk)
         count += 1
     except:
         pass
-
-
-def schedule(a, b, c):
-    """
-    :param a: 已经下载的数据块
-    :param b: 数据块的大小
-    :param c: 远程文件的大小
-    :return: null
-    """
-    per = 100.0 * a * b / c
-    if per > 100:
-        per = 100
-    per = round(per, 2)
-    print('当前下载进度：' + str(per))
 
 
 if __name__ == '__main__':
