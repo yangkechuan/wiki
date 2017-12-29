@@ -48,6 +48,5 @@ def send_mail():
     s.sendmail(usr, to, msg.as_string())
     s.close()
 
-if __name__ == '__main__':
-    send_mail()
 
+send_mail()
