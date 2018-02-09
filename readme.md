@@ -26,6 +26,11 @@
 - [关于python](./python/readme.md)
 
 
+# java
+> 关于java的一些知识
+
+- [关于java](./java/readme.md)
+
 # 个人
 - [关于我](./aboutme.md)
 
