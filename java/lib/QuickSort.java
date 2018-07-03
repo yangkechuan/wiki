@@ -35,7 +35,7 @@ public class QuickSort {
             while (left < right && array[right] >= base) {
                 right--;
             }
-            // 从右侧开始查找，如果比基准数小，继续查找
+            // 从左侧开始查找，如果比基准数小，继续查找
             while (left < right && array[left] <= base) {
                 left++;
             }
