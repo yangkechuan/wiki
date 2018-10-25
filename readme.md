@@ -9,7 +9,7 @@
 ---
 
 
-![coding](./images/coding.jpeg)
+<center>![coding](./images/coding.jpeg)</center>
 
 ---
 
