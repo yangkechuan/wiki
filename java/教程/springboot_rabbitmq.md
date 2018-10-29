@@ -60,7 +60,7 @@ rabbmitmq依赖于erlang语言，需要先安装erlang环境
 
 目录结构如下：
 
-![rabbmitmq_code_tree](../images/rabbmitmq_code_tree.png )
+![rabbitmq_code_tree](../images/rabbitmq_code_tree.png )
 
 项目要创建两个mq,一个是String类型，一个是实体类类型
 

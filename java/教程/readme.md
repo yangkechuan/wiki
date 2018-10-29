@@ -5,5 +5,5 @@
 ---
 
 ### spingboot
-- [springboot + rabbmitmq](./springboot_rabbmitmq.md)
+- [springboot + rabbitmq](./springboot_rabbitmq.md)
 - [springboot + activemq](./springboot_activemq.md)
