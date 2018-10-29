@@ -1,10 +1,10 @@
-## springboot + rabbmitmq
+## springboot + rabbitmq
 
 ---
 
 
 ### 1.安装erlang
-rabbmitmq依赖于erlang语言，需要先安装erlang环境
+rabbitmq依赖于erlang语言，需要先安装erlang环境
 
     下载地址：http://www.erlang.org/downloads
  
@@ -14,11 +14,11 @@ rabbmitmq依赖于erlang语言，需要先安装erlang环境
 
 
 
-### 2.安装rabbmitmq
+### 2.安装rabbitmq
 
     下载地址：http://www.rabbitmq.com/download.html
    
-安装完成后，在`rabbmitmq/sbin`  目录下执行 `rabbitmq-plugins enable rabbitmq_management`  安装插件
+安装完成后，在`rabbitmq/sbin`  目录下执行 `rabbitmq-plugins enable rabbitmq_management`  安装插件
 
 插件安装成功后，登录 [http://localhost:15672](http://localhost:15672)
 
@@ -66,11 +66,11 @@ rabbmitmq依赖于erlang语言，需要先安装erlang环境
 
 mq配置代码：
 
-RabbmitMqConfig.java:
+RabbitMqConfig.java:
 
 ```java
 @Configuration
-public class RabbmitMqConfig {
+public class RabbitMqConfig {
 
     @Bean
     public Queue text() {
@@ -180,7 +180,7 @@ properties 配置：
 # log
 logging.level.com.example.demo=debug
 
-# rabbmitmq
+# rabbitmq
 spring.rabbitmq.host=127.0.0.1
 spring.rabbitmq.port=5672
 spring.rabbitmq.username=guest
