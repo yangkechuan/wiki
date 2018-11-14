@@ -8,6 +8,7 @@
 - [springboot + rabbitmq](./springboot_rabbitmq.md)
 - [springboot + activemq](./springboot_activemq.md)
 - [springboot + redis_cluster](./springboot_redis_cluster.md)
+- [springboot + websocket](./springboot_websocket.md)
 ### java
 
 - [定时任务](./java_task.md)
