@@ -1,20 +1,20 @@
-# python wiki
+## python wiki
 
 ---
-> *Python下的脚本或者文章,一般都基于python3.5*
+> *只愿君心似我心，定不负相思意*
 ---
 
-## 教程
+### 教程
 > 记录自己学到的知识,放在了`教程/readme.md`下
 
-- go to [教程](./教程/readme.md)
+- go to  [教程](./教程/readme.md)
 
-## 小程序
+### 小程序
 > 平时可能会用到的一些脚本
 
-- 点这里 --> [lib](./lib/readme.md)
+- go to  [lib](./lib/readme.md)
 
-## Demo
+### Demo
 > 各种场景下的demo
 
-- go to --> [demo](./demo/readme.md)
+- go to  [demo](./demo/readme.md)
