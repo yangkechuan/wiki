@@ -85,9 +85,7 @@ sql-mode="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
 
 2.初始化
 
-第一步执行正常后，执行命令 ： `mysqld  --initialize` , 如果没有任何提示，也没有任何错误，说明正常，此命令会执行初始化操作，包括创建根目录
-
-下的`data`文件夹， **注意**，这一步必须执行，不然服务无法启动
+第一步执行正常后，执行命令 ： `mysqld  --initialize` , 如果没有任何提示，也没有任何错误，说明正常，此命令会执行初始化操作，包括创建根目录下的`data`文件夹， **注意**，这一步必须执行，不然服务无法启动
 
 3.启动服务
 
