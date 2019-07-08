@@ -16,3 +16,4 @@
 ### java
 
 - [定时任务](./java_task.md)
+- [java wait/notify  和 park/unpark](./java_thread_demo_1.md)
