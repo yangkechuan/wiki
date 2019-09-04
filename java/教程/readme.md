@@ -4,7 +4,7 @@
 >*换我心，为你心，始知相忆深*
 ---
 
-### spingboot
+### springBoot
 - [springboot + rabbitmq](./springboot_rabbitmq.md)
 - [springboot + activemq](./springboot_activemq.md)
 - [springboot + redis_cluster](./springboot_redis_cluster.md)
