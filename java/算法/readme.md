@@ -12,7 +12,8 @@
 
 - [动态数组](./MyArray.java)
 - [链表](./MyLinkedList.java)
-
+- [栈](./MyStack.java)
+- [队列](./MyQueue.java)
 #### 树
 
 - [二叉树遍历](./MyBinaryTree.java)
