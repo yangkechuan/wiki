@@ -11,3 +11,6 @@
 ### 教程
 > 一些小教程
 - go to [教程](./教程/readme.md)
+
+### leetCode
+- go to [leetCode](./leetcode/readme.md)
