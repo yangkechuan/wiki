@@ -2,9 +2,7 @@ package com.example;
 
 import java.util.Arrays;
 
-/**
- * @author ykc
- */
+
 public class MyCountSort {
 
     /**

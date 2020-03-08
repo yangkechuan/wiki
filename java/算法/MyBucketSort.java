@@ -5,9 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 
-/**
- * @author ykc
- */
+
 public class MyBucketSort {
 
     /**

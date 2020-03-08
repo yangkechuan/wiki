@@ -40,3 +40,9 @@
  - [计数排序](./MyCountSort.java)
  - [桶排序](./MyBucketSort.java)
  - 基数排序
+
+
+#### 面试中的算法
+
+- [判断单链表是否有环](./InterviewIsCycle.java)
+- [最小栈](./InterviewMinStack.java)
