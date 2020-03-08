@@ -14,3 +14,6 @@
 
 ### leetCode
 - go to [leetCode](./leetcode/readme.md)
+
+### 算法
+- go to [算法](./算法/readme.md)

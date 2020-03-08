@@ -37,6 +37,6 @@
  - [堆排序](./MyHeapSort.java)
  
 3. **时间复杂度为线性**
- - 计数排序
- - 桶排序
+ - [计数排序](./MyCountSort.java)
+ - [桶排序](./MyBucketSort.java)
  - 基数排序
