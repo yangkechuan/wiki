@@ -46,3 +46,8 @@
 
 - [判断单链表是否有环](./InterviewIsCycle.java)
 - [最小栈](./InterviewMinStack.java)
+- [获取两数的最大公约数](./InterviewGetGreatestCommonDivisor.java)
+- [判断一个数是否是2的整数次幂](./InterviewIsPowerOf2.java)
+- [无序数组排序后的最大相邻差](./InterviewGetMaxSortedDistance.java)
+- [用栈来实现队列](./InterviewQueue.java)
+- [寻找全排列的下一个数](./InterviewFindNearestNumber.java)

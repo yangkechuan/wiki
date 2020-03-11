@@ -41,7 +41,7 @@ public class InterviewMinStack {
      * @return 元素
      */
     private Integer pop(){
-        if (minStack.peek() == mainStack.peek()){
+        if (minStack.peek().equals(mainStack.peek())){
             minStack.pop();
         }
         return mainStack.pop();
