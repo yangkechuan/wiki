@@ -51,3 +51,6 @@
 - [无序数组排序后的最大相邻差](./InterviewGetMaxSortedDistance.java)
 - [用栈来实现队列](./InterviewQueue.java)
 - [寻找全排列的下一个数](./InterviewFindNearestNumber.java)
+- [删去k个数字后的最小值](./InterviewRemoveKDigits.java)
+- [大整数相加](./InterviewBigNumberSum.java)
+- [获得金矿最优收益](./InterviewGetBestGoldMining.java)
