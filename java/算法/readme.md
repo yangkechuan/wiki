@@ -54,3 +54,4 @@
 - [删去k个数字后的最小值](./InterviewRemoveKDigits.java)
 - [大整数相加](./InterviewBigNumberSum.java)
 - [获得金矿最优收益](./InterviewGetBestGoldMining.java)
+- [寻找缺失的整数](./InterviewFindLostNum.java)
