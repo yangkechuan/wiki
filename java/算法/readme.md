@@ -55,3 +55,7 @@
 - [大整数相加](./InterviewBigNumberSum.java)
 - [获得金矿最优收益](./InterviewGetBestGoldMining.java)
 - [寻找缺失的整数](./InterviewFindLostNum.java)
+- [Bitmap](./MyBitmap.java)
+- [LRU算法](./MyLRUCache.java)
+- [A星寻路算法](./MyAStarSearch.java)
+- [红包算法](./MyDivideRedPackage.java)
