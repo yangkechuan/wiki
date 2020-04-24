@@ -59,3 +59,7 @@
 - [LRU算法](./MyLRUCache.java)
 - [A星寻路算法](./MyAStarSearch.java)
 - [红包算法](./MyDivideRedPackage.java)
+
+#### 其他算法
+
+- [单链表翻转](./NodeReverse.java)
