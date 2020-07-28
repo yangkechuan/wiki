@@ -32,7 +32,7 @@ public class FindOne {
     }
 
     /**
-     * 一个整数数组，数组中除一个整数出现过两次外，其余都出现过一次，请找出只出现一次的整数
+     * 一个整数数组，数组中除一个整数出现过两次外，其余都出现过一次，请找出出现两次的整数
      */
     private static Integer findTwo(int[] array){
         Set<Integer> set = new HashSet<>();
