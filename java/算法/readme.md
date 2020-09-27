@@ -66,3 +66,5 @@
 - [约瑟夫环](./Josephus.java)
 - [找出数组中只出现一次/两次的数](./FindOne.java)
 - [链表中倒数第k个节点](./FindK.java)
+- [斐波那契数列](./Fibonacci.java)
+- [二维数组中查找](./FindInTwoDimensionalArray.java)
