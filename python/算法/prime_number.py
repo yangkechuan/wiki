@@ -7,6 +7,7 @@ python for... else... 用法：
 
 for x in range(5):
     if x == 2:
+        print(2)
         break
 else:
     print('run else')
