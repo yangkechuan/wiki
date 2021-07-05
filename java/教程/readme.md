@@ -12,7 +12,7 @@
 - [springboot_jpa_two_dataSource](springboot_jpa_two_dataSource.md)
 - [springboot_mybatis_two_dataSource](./springboot_mybatis_two_dataSource.md)
 - [springboot_master_slave_dataSource](./springboot_master_slave_dataSource.md)
-
+- [springboot 多模板打包](./springboot_modules_package.md)
 ### java
 
 - [定时任务](./java_task.md)
