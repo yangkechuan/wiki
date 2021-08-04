@@ -28,7 +28,7 @@
 1. **时间复杂度为O(n²)**
  - [冒泡排序](./MyBubbleSort.java)
  - [选择排序](./MySelectSort.java)
- - 插入排序
+ - [插入排序](./MyInsertSort.java)
  - 希尔排序(比较特殊，性能介于O(n²) ~ O(nlogn))
 
 2. **时间复杂度为 O(nlogn)**
