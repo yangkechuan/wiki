@@ -24,3 +24,4 @@
 
 - [idea 常用插件](./idea_plugins.md)
 - [idea 解决依赖冲突](./idea_maven_helper.md)
+- [jacoco 代码覆盖率](./jacoco_coverage.md)

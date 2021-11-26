@@ -53,6 +53,11 @@ mybatis 免费插件，xml代码提示， mapper 和 dao 互相跳转。
 官网地址：https://projectlombok.org/
 
 
+### 8. RestfulTool
+
+安装完成后，可以在右侧边栏点击查看当前web项目有哪些接口，点击接口，可以跳转对应方法
+
+idea 可以通过双击 `shift` 然后搜索 `url` 全路径完成同样效果。(测试版本：v2020.3)
 
 
 
