@@ -19,9 +19,3 @@
 - [定时任务](./java_task.md)
 - [java wait/notify  和 park/unpark](./java_thread_demo_1.md)
 - [ThreadPoolExecutor 自定义参数](./ThreadPoolExecutor_demo.md)
-
-### 工具
-
-- [idea 常用插件](./idea_plugins.md)
-- [idea 解决依赖冲突](./idea_maven_helper.md)
-- [jacoco 代码覆盖率](./jacoco_coverage.md)
