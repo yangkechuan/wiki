@@ -92,7 +92,7 @@
 
 ```xml
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-<dependency
+<dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>6.14.3</version>
