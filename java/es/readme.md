@@ -2,4 +2,4 @@
 
 
 - [安装 es， postman 请求 es](./install_and_postman_request.md)
-- [java client 请求 es] // TODO
+- [java client 请求 es](./java_client_es.md)
