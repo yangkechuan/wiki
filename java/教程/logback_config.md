@@ -74,7 +74,7 @@ logback 配置文件加载顺序：
         <!-- encoder 默认配置为PatternLayoutEncoder -->
         <!--定义控制台输出格式-->
         <encoder>
-            <pattern>%d{yyyy-mm-dd HH:mm:ss.SSS } [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS } [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -97,7 +97,7 @@ logback 配置文件加载顺序：
         </triggeringPolicy>
         <!--定义输出格式-->
         <encoder>
-            <pattern>%d{yyyy-mm-dd HH:mm:ss.SSS } [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS } [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -121,7 +121,7 @@ logback 配置文件加载顺序：
         </triggeringPolicy>
         <!--定义输出格式-->
         <encoder>
-            <pattern>%d{yyyy-mm-dd HH:mm:ss.SSS } [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS } [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
         </encoder>
         <!--只处理 error 级别-->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
