@@ -477,7 +477,7 @@ sh-4.2# cat ext.dic
       {
           "query": {
               "match": {
-                  "content": "中国人"
+                  "content": "中"
               }
           }
       }
