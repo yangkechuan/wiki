@@ -13,6 +13,7 @@
 ### 0.基本信息
 
 - 参考视频：https://www.bilibili.com/video/BV1hh411D7sb?p=1
+- 参考视频2：https://www.bilibili.com/video/BV1LY4y167n5
 - 官网 ES 下载地址：https://www.elastic.co/cn/downloads/elasticsearch
 - ES github 地址：https://github.com/elastic/elasticsearch
 - docker 基本使用学习地址：https://github.com/yeasy/docker_practice

@@ -11,3 +11,4 @@
 进阶：
 - [es mappings](./es_mappings.md)
 - [es 使用 kibana 搜索](./es_kibana_search.md)
+- [es 补充部分](./es_extends.md)
