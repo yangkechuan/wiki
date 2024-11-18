@@ -35,13 +35,14 @@ public class InterviewIsCycle {
      * @return 是否有环
      */
     private static boolean isCycle(Node node) {
-        Node p1 = node;
-        Node p2 = node;
-        while (p1 != null && p2 != null) {
-            p1 = p1.next;
-            p2 = p2.next.next;
-            if (p1 == p2) {
-                flag = p1;
+        Node fast = node;
+        Node slow = node;
+        // 只判定快指针当前值以及下一个值即可，避免出现空指针异常
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (fast == slow) {
+                flag = fast;
                 return true;
             }
         }
