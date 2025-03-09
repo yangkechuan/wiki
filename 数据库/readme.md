@@ -8,3 +8,4 @@
 ### mysql
 
 - [mysql相关](mysql/readme.md)
+- [redis相关](redis/readme.md)
