@@ -443,6 +443,250 @@ public class ParametersTest extends AbstractTestNGSpringContextTests {
 ![maven_testng_02](../images/maven_testng_02.png)
 
 
+## 4. 监听器的使用
+
+在 TestNG 中，listeners（监听器）是一种强大的机制，它允许你在测试执行的不同阶段插入自定义逻辑。监听器可以监听测试方法、测试类、测试套件等的生命周期事件，例如测试开始、测试结束、测试通过、测试失败等。
+
+TestNG 提供了多种类型的监听器接口，常见的有：
+1. ITestListener：监听测试方法的生命周期事件，如测试开始、结束、通过、失败等。
+2. ISuiteListener：监听测试套件的生命周期事件，如套件开始和结束。
+
+
+### 4.1 实现 ITestListener 监听器
+
+新建一个 `DemoTestListener.java` 文件，实现 `ITestListener` 监听器
+
+```java
+package com.example.testng;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class DemoTestListener implements ITestListener {
+
+    @Override
+    public void onTestStart(ITestResult result) {
+        System.out.println("Test " + result.getName() + " started.");
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        System.out.println("Test " + result.getName() + " passed.");
+    }
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        System.out.println("Test " + result.getName() + " failed.");
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        System.out.println("Test " + result.getName() + " skipped.");
+    }
+
+    @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        // 处理部分失败但仍在成功百分比内的情况
+    }
+
+    @Override
+    public void onStart(ITestContext context) {
+        System.out.println("Test suite " + context.getName() + " started.");
+    }
+
+    @Override
+    public void onFinish(ITestContext context) {
+        System.out.println("Test suite " + context.getName() + " finished.");
+    }
+
+}
+
+```
+
+从方法名称中，可以看到 `ITestListener` 的监听器，可以监听测试方法的生命周期。
+
+
+### 4.2 实现 ISuiteListener 监听器
+
+
+新建 `DemoSuiteListener.java` 文件，实现 `ISuiteListener` 监听器。
+
+
+
+```java
+package com.example.testng;
+
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
+import org.testng.ISuiteResult;
+
+import java.util.Map;
+
+public class DemoSuiteListener implements ISuiteListener {
+
+    // 测试 suite 开始
+    @Override
+    public void onStart(ISuite suite) {
+        System.out.println(suite.getName() + " suite start");
+    }
+
+
+    // suite 完成后的一些自定义方法，比如可以用来统计所有的成功数量，失败数量，跳过数量等。
+    private static int totalPassCount = 0;
+    private static int totalSkipCount = 0;
+    private static int totalFailCount = 0;
+
+    @Override
+    public void onFinish(ISuite suite) {
+        Map<String, ISuiteResult> resultMap = suite.getResults();
+        for (Map.Entry<String, ISuiteResult> entry : resultMap.entrySet()) {
+            String testName = entry.getKey();
+
+            ISuiteResult suiteResult = entry.getValue();
+            int passCount = suiteResult.getTestContext().getPassedTests().size();
+            int skipCount = suiteResult.getTestContext().getSkippedTests().size();
+            int failCount = suiteResult.getTestContext().getFailedTests().size();
+
+            // Map 中的 key , 对应不同的测试组，每一组都有一个单独的测试结果
+            System.out.printf("testName ：%s, passCount = %s, skipCount = %s , failCount = %s \n", testName, passCount, skipCount, failCount);
+
+            totalPassCount += passCount;
+            totalSkipCount += skipCount;
+            totalFailCount += failCount;
+        }
+
+        System.out.println("-----------------------");
+        System.out.println("本次 suite 测试汇总数据如下：");
+        System.out.println("totalPassCount :" + totalPassCount);
+        System.out.println("totalSkipCount :" + totalSkipCount);
+        System.out.println("totalFailCount :" + totalFailCount);
+    }
+}
+
+```
+
+`DemoSuiteListener` 可以监听测试套件的生命周期。例如在 `onFinish` 完成后，可以统计测试结果。
+
+### 4.3  监听器在注解方式上使用
+
+以上面的 `DemoTest.java` 为例，可以通过 `@Listeners` 注解方式，使用监听器, 支持配置多个监听器。
+
+```java
+package com.example.testng;
+
+
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+@SpringBootTest
+@Listeners({DemoTestListener.class, DemoSuiteListener.class})
+public class DemoTest extends AbstractTestNGSpringContextTests {
+
+    @Test
+    public void testMethod() {
+        System.out.println("TestNG 测试运行成功！");
+    }
+}
+
+```
+
+执行测试方法，查看核心日志如下：
+
+```log
+Test testMethod started.
+TestNG 测试运行成功！
+Test testMethod passed.
+Test suite springboot-testng finished.
+testName ：springboot-testng, passCount = 1, skipCount = 0 , failCount = 0 
+-----------------------
+本次 suite 测试汇总数据如下：
+totalPassCount :1
+totalSkipCount :0
+totalFailCount :0
+```
+
+### 4.3  监听器在 xml 文件方式上使用
+
+
+以上面的 `test.xml` 文件为例，在最后追加监听器标签，需要注意的是， `listeners` 只能在 `suite` 子层级：
+
+```xml
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Spring Boot Test Suite">
+
+
+    <!--该标签代表一个测试，一个测试套件可以包含多个测试。每个测试可以有自己独立的测试类、测试方法和配置-->
+    <test name="Demo Tests">
+        <!--   在当前测试下，指定有哪些测试类，默认按照添加顺序执行     -->
+        <classes>
+            <class name="com.example.testng.DemoTest"/>
+            <class name="com.example.testng.AnnotationTest"/>
+            <class name="com.example.testng.SubAnnotationTest">
+                <methods>
+                    <!--   如果一个类中有多个方法，可以指定执行某几个方法   -->
+                    <include name="testWithData"/>
+                    <include name="testWithGroup"/>
+
+                    <!--   同样的，也可以指定排除某几个方法，一般不会和 include 标签共存   -->
+                    <exclude name="testTimeOut"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <!--  case 2  -->
+    <test name="Demo test2">
+        <!--   这个示例里面，可以指定要运行的组和要排除的组     -->
+        <groups>
+            <run>
+                <include name="g1"/>
+                <exclude name="g2"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.example.testng.SubAnnotationTest"/>
+        </classes>
+    </test>
+
+    <!--  case3  -->
+    <test name="Demo test3">
+        <!--   给 ParametersTest 构造好参数  -->
+        <parameter name="userName" value="张三"/>
+        <parameter name="password" value="123456"/>
+        <classes>
+            <class name="com.example.testng.ParametersTest"/>
+        </classes>
+    </test>
+
+
+    <listeners>
+        <listener class-name="com.example.testng.DemoSuiteListener"/>
+        <listener class-name="com.example.testng.DemoTestListener"/>
+    </listeners>
+
+</suite>
+
+```
+
+
+核心日志如下：
+
+```log
+testName ：Demo Tests, passCount = 5, skipCount = 0 , failCount = 0 
+testName ：Demo test2, passCount = 1, skipCount = 0 , failCount = 0 
+testName ：Demo test3, passCount = 1, skipCount = 0 , failCount = 0 
+-----------------------
+本次 suite 测试汇总数据如下：
+totalPassCount :7
+totalSkipCount :0
+totalFailCount :0
+```
+
+如果有多个测试标签时，会统计多次的测试结果。
 
 ---
 
