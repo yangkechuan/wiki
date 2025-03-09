@@ -13,18 +13,9 @@
 
 代码编辑区迷你缩放，可以查看代码地图，并且方便上下拖动。
 
-### 3. codota  /  tabnine
+### 3. MarsCode AI
 
-以上是两个插件，都是基于 AI 分析的代码提示工具。可以在写代码时，更加智能的提供提示。二选一即可。
-
-至于两者关系，codota 在 2019年收购了 tabnine。
-
-
- - codota [官网地址](https://www.codota.com/)
- - codota [插件官方地址](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript)
- - tabnine [官网地址](https://www.tabnine.com)
- - tabnine [插件官方地址](https://plugins.jetbrains.com/plugin/12798-tabnine-ai-code-completion-js-java-python-ts-rust-go-php--more)
-
+字节跳动开发的 AI 插件 , 除了可以代码提示之外，还可以解释某个代码块的含义。
 
 ### 3. Free MyBatis plugin
 
