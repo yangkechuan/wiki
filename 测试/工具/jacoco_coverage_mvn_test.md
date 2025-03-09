@@ -1,10 +1,9 @@
-## jacoco coverage
+## jacoco coverage mvn test
 
 
     jacoco 查看代码覆盖率：
 
-    1.查看单元测试覆盖率
-    2.查看接口流量覆盖率
+    查看单元测试覆盖率
 
     环境信息：
     Mac 环境
@@ -15,6 +14,8 @@
 
 
 ### 1.查看单元测试覆盖率
+
+这种方式，适合开发写完代码后，自己编写单元测试，当单元测试通过后，触发提测。
 
 ### 1.1) 新建项目
 
@@ -176,9 +177,3 @@ class IndexControllerTest extends AbstractTestNGSpringContextTests{}
 - 绿色–测试或覆盖代码。
 - 红色–未测试或覆盖代码。
 - 黄色–代码已部分测试或覆盖。
-
-
-
-### 2.查看接口流量覆盖率
-
-// TODO
