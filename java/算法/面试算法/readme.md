@@ -8,6 +8,10 @@
 
 
 1. [在给定的字符串中找出所有最长的无重复字符子串](./FindLongestSubstrings.java)
+2. [计算给定整数数组中最大子数组的和](./MaxSubArraySum.java)
+3. [反转输入字符串中单词的顺序](./ReverseWords.java)
+4. [找出字符串中出现频率最高的前十个字符](./FindTopTenFrequentCharacters.java)
+
 
 
 
